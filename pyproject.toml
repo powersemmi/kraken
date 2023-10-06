@@ -1,0 +1,71 @@
+[project]
+name = "kraken"
+version = "0.0.1"
+description = "http -> rmq handler"
+authors = [
+    {name = "Chebotarev Victor", email = "powersemmi@gmail.com"},
+]
+dependencies = [
+    "aioka==0.2.0",
+    "pydantic>=2.4.2",
+    "fastapi[all]>=0.103.2",
+    "sqlalchemy[asyncio,mypy]>=2.0.21",
+    "asyncpg>=0.28.0",
+    "pydantic-settings>=2.0.3",
+    "alembic>=1.12.0",
+    "pyyaml>=6.0.1",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "ruff>=0.0.292",
+    "mypy>=1.5.1",
+    "pytest>=7.4.2",
+    "pytest-asyncio>=0.21.1",
+    "black>=23.9.1",
+    "types-PyYAML>=6.0.12.12",
+]
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.ruff]
+select = [
+    "A",  # prevent using keywords that clobber python builtins
+    "B",  # bugbear: security warnings
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "ISC",  # implicit string concatenation
+    "UP",  # alert you when better syntax is available in your python version
+    "RUF",  # the ruff developer's own rules
+]
+ignore = ["B008"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "docs",
+    "build",
+    "dist",
+    ".venv",
+    "venv",
+    "__pypackages__"
+]
+line-length = 79
+target-version = "py311"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin"]
+ignore_missing_imports = "True"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

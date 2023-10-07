@@ -6,7 +6,7 @@ groups = ["default", "dev"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:463fe2508efdb5964dc74ea94ec094ab7a3b8f79d16ebed6cc3f917e0d6ea070"
+content_hash = "sha256:b8a6759e1153422a5b9fc7fe755d29cca855009a12ad3c143fd48c852ad448e6"
 
 [[package]]
 name = "aio-pika"
@@ -24,7 +24,7 @@ files = [
 
 [[package]]
 name = "aioka"
-version = "0.2.0"
+version = "0.2.1.dev0"
 requires_python = ">=3.11"
 summary = "aio-pika framework"
 dependencies = [
@@ -34,8 +34,8 @@ dependencies = [
     "uvicorn[standart]>=0.23.2",
 ]
 files = [
-    {file = "aioka-0.2.0-py3-none-any.whl", hash = "sha256:c28db97bb47b5dbbc5085f60711bce850c58f10891f0ad3d562262626b5c80f8"},
-    {file = "aioka-0.2.0.tar.gz", hash = "sha256:a3e1efa8f5ebd09b707fdc17821b29a3229607b238ad9c2288e69a66226a860a"},
+    {file = "aioka-0.2.1.dev0-py3-none-any.whl", hash = "sha256:75db8a63ee2434babe819409f8bf9ef97506d147d4a9ce944ab2e41c07ebd258"},
+    {file = "aioka-0.2.1.dev0.tar.gz", hash = "sha256:791266f3fd24e91a57092cfd26adc3d1b1795e021736c9db238c0791004ab560"},
 ]
 
 [[package]]

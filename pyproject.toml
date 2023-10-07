@@ -6,7 +6,7 @@ authors = [
     {name = "Chebotarev Victor", email = "powersemmi@gmail.com"},
 ]
 dependencies = [
-    "aioka==0.2.0",
+    "aioka==0.2.1.dev0",
     "pydantic>=2.4.2",
     "fastapi[all]>=0.103.2",
     "sqlalchemy[asyncio,mypy]>=2.0.21",

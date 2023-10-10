@@ -9,7 +9,7 @@ ENV PYTHONFAULTHANDLER=1 \
 
 RUN pip install -U "pdm==$PDM_VERSION" "pip==23.2.1" && \
     pdm config venv.in_project false && \
-    pdm config check_update && \
+    pdm config check_update false && \
     pdm config python.use_venv false
 
 COPY pyproject.toml pdm.lock README.md /opt/app/
@@ -26,7 +26,7 @@ COPY --from=builder /opt/app/__pypackages__/3.11/lib /opt/app/pkgs
 WORKDIR /opt/app
 COPY . .
 
-CMD ["python", "-m", "kraken", "run-server"]
+CMD ["python", "-m", "kraken"]
 
 FROM builder as tester
 

@@ -6,14 +6,15 @@ authors = [
     {name = "Chebotarev Victor", email = "powersemmi@gmail.com"},
 ]
 dependencies = [
-    "aioka==0.2.1.dev0",
-    "pydantic>=2.4.2",
+    "faststream[rabbit]>=0.2.3",
     "fastapi[all]>=0.103.2",
     "sqlalchemy[asyncio,mypy]>=2.0.21",
+    "pydantic>=2.4.2",
     "asyncpg>=0.28.0",
     "pydantic-settings>=2.0.3",
     "alembic>=1.12.0",
     "pyyaml>=6.0.1",
+    "hypercorn>=0.14.4",
 ]
 requires-python = ">=3.11"
 readme = "README.md"

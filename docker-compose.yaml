@@ -16,13 +16,15 @@ services:
       rabbitmq:
         condition: service_healthy
     networks: [ shared ]
+    ports:
+      - "8000:8000"
     command:
       bash -c "python -m alembic upgrade head && python -m kraken run-server"
     env_file:
       - .env
     environment:
       PG_DSN: postgresql+asyncpg://postgres:postgres@postgres:5432/app
-      RMQ_URLS: '["amqp://user:user@rabbitmq:5672"]'
+      RMQ_URL: amqp://user:user@rabbitmq:5672
 
   postgres:
     image: postgres:16-alpine

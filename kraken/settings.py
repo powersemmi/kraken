@@ -6,7 +6,7 @@ from kraken.utils.types import AsyncPostgresDsn
 
 class Settings(BaseSettings):
     # Rabbit
-    RMQ_URLS: list[AmqpDsn]
+    RMQ_URL: AmqpDsn
     EXCHANGE: str = "services"
 
     # Postgres
@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     SERVICE_NAME: str = "kraken"
     BIND: str = "0.0.0.0:8080"
     DEBUG: bool = False
+    WORKERS: int = 1
 
     model_config = SettingsConfigDict(
         case_sensitive=True,

@@ -2,8 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from kraken.settings import settings
-
-from .routes import build, health
+from .routes import build, health, rmq
 
 API_VERSION = "0.0.1"
 
@@ -15,6 +14,7 @@ def create_app():
         debug=settings.DEBUG,
         title=settings.SERVICE_NAME.title(),
         version=API_VERSION,
+        lifespan=rmq.router.lifespan_context
     )
 
     app.add_middleware(
@@ -28,4 +28,6 @@ def create_app():
     v1 = "/api/v1"
     app.include_router(health.router)
     app.include_router(build.router, prefix=v1)
+
+    app.include_router(rmq.router)
     return app

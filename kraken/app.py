@@ -14,7 +14,7 @@ def create_app():
         debug=settings.DEBUG,
         title=settings.SERVICE_NAME.title(),
         version=API_VERSION,
-        lifespan=rmq.router.lifespan_context
+        lifespan=rmq.router.lifespan_context,
     )
 
     app.add_middleware(

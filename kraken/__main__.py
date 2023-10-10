@@ -8,7 +8,7 @@ from kraken.app import create_app
 from kraken.settings import settings
 from kraken.utils.logging_loader import init_logging
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     init_logging()
 
     logger = logging.getLogger(__name__)
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     config = Config()
     config.workers = settings.WORKERS
     config.debug = settings.DEBUG
-    config.bind = settings.BIND
+    config.bind = [settings.BIND]
     config.accesslog = logger
 
     asyncio.run(serve(create_app(), config, mode="asgi"))

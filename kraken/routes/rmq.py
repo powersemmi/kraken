@@ -9,7 +9,7 @@ router = RabbitRouter(
     str(settings.RMQ_URL),
     schema_url="/asyncapi",
     include_in_schema=True,
-    setup_state=False  # noqa
+    setup_state=False,  # type: ignore[call-arg]
 )
 
 logger = logging.getLogger(__name__)
